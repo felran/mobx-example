@@ -1,0 +1,51 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true,
+        "jquery": true,
+        "amd": true
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 2017,
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true,
+            "arrowFunctions": true,
+            "classes": true,
+            "modules": true,
+            "defaultParams": true
+        },
+        "sourceType": "module"
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "semi": [
+            2,
+            "always"
+        ],
+        "comma-dangle": [
+            2,
+            "never"
+        ],
+        "no-alert": 1,
+        "no-mixed-spaces-and-tabs": 0,
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "react/prop-types":0,
+        "no-extra-boolean-cast": 1
+    },
+    "globals": {
+        "BMessager": true,
+        "ImageHelper": true,
+        "FileSystem": true,
+        "TemplateConfig": true
+    }
+}
