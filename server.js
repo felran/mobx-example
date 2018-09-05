@@ -16,7 +16,10 @@ const devMiddleware = webpackDevMiddleware(compiler,{
     publicPath:config.output.publicPath,
     // quiet: true
 });
-const hotMiddleware = webpackHotMiddleware(compiler,{});
+const hotMiddleware = webpackHotMiddleware(compiler,{
+    log:console.log,
+    reload:true
+});
 
 const staticFile = Static(path.join( __dirname,  'dist'));
 app.use(devMiddleware);

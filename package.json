@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js --mode=development"
+    "clear": "rm -rf build&& mkdir build",
+    "dev": "node server.js cross-env NODE_ENV=development",
+    "build" : "npm run clear&&node server.js cross-env NODE_ENV=production"
   },
   "author": "luoran",
   "license": "ISC",
@@ -28,10 +30,12 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.2.0",
     "html-webpack-plugin": "^3.2.0",
     "koa-static": "^5.0.0",
     "koa-webpack-dev-middleware": "^2.0.2",
     "koa-webpack-hot-middleware": "^1.0.3",
+    "react-hot-loader": "^4.3.6",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0"
   }

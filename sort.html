@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const array = [];
+        for(let i=0;i<15;i++){
+            array.push(parseInt(Math.random()*15));
+        }
+        const start = new Date().getTime();
+        console.log(array,start);
+        //归并
+        function sort(array){
+            function merge(result,left,right){
+                let result = [];
+                while(left.length&&right.length){
+                    result.push(left[0]<=right[0]?left.shift():right.shift());
+                }
+                return result.concat(left.concat(right));
+            }
+            if(array.length<2) return array;
+            let mid = parseInt(array.length/2);
+            let leftArray = array.slice(0,mid);
+            let rightArray = array.slice(mid);
+            console.log(mid);
+            return merge(sort(leftArray),sort(rightArray));
+        }
+        const newArray = sort(array);
+        const end = new Date().getTime();
+        console.log(newArray,end,end-start);
+
+
+    </script>
+</body>
+</html>

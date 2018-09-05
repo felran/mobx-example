@@ -10,6 +10,7 @@ const Main = (
         <div>
             <Home/>
             <Container/>
+            <div>666</div>
         </div>
     </Provider>
 )
