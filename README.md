@@ -1,20 +1,18 @@
-## mobx-react-webpack-koa-example
+## mobx example介绍
 
-A example of Mobx combine with React. Supports ES6 and JSX compilation through babel;
-This can be a startkit for mobx project; 
-It use the mobx multi store,and use mobx inject syntax filter the store props which you want to receive;
+基于mobx在react中应用的一个脚手架工程，支持ES6和JSX语法，使用webpack4+koa+react+mobx 实现
 
 
-* To use koa for server and use webpack dev middleware,but not Support Server Side Rendering for now
-* Support for React-Hot-Loader
-* To use Mobx decorators syntax
+* 使用mobx装饰器语法
+* 使用koa框架结合webpack中间件技术
+* 支持热更新React-Hot-Loader
 
-### Run the example
+### 运行这个Demo
 
 ```
 npm install 
 npm run dev
 ```
-open the browser and visit [localhost:3000](http://localhost:3000)
+打开浏览器访问 [localhost:3000](http://localhost:3000)
 
 
