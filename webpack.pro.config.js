@@ -1,19 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 module.exports = {
-    mode:'development',
+    mode:'production',
     entry:[
-        'webpack-hot-middleware/client?reload=true',
         path.resolve(__dirname,'./src/index.js')
     ],
     output:{
-        filename:'[name].js',
+        filename:'[name][hash].js',
         path:path.resolve(__dirname,'dist'),
         publicPath:'/'
     },
-    devtool:'inline-source-map',
     module:{
         rules:[{
             test:/\.js$/,
@@ -28,10 +25,18 @@ module.exports = {
         }]
     },
     plugins:[
+        // new webpack.DllPlugin({
+        //     context:__dirname,
+        //     name:'dll_[name].js',
+        //     path:path.resolve(__dirname,'manifest.json')
+        // }),
+        // new webpack.DllReferencePlugin({
+        //     context:__dirname,
+        //     manifest:require('./manifest.json'),
+        // }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, './public/index.html'),
         }),
-        new webpack.HotModuleReplacementPlugin(),
     ]
 }

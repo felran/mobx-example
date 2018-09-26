@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clear": "rm -rf build&& mkdir build",
-    "dev": "node server.js cross-env NODE_ENV=development",
-    "build" : "npm run clear&&node server.js cross-env NODE_ENV=production"
+    "clear": "rimraf -rf build&& mkdir build",
+    "start": "npm run dev",
+    "dev": "cross-env NODE_ENV=development node server.js",
+    "build": "cross-env NODE_ENV=production &&npm run clear && webpack --config ./webpack.pro.config.js -p"
   },
   "author": "luoran",
   "license": "ISC",
@@ -17,7 +18,8 @@
     "mobx-react": "^5.2.5",
     "moment": "^2.22.2",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.4.2",
+    "rimraf": "^2.6.2"
   },
   "devDependencies": {
     "babel": "^6.23.0",
