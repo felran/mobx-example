@@ -6,6 +6,7 @@
 * 使用mobx装饰器语法
 * 使用koa框架结合webpack中间件技术
 * 支持热更新React-Hot-Loader
+* 打包支持webpack dllPlugin，加快打包速度
 
 ### 运行这个Demo
 
@@ -13,6 +14,14 @@
 npm install 
 npm run dev
 ```
+
 打开浏览器访问 [localhost:3000](http://localhost:3000)
+
+
+### 打包
+```
+npm run dll 
+npm run build
+```
 
 
