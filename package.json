@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clear": "rimraf -rf build&& mkdir build",
+    "clear": "rimraf -rf dist&& mkdir dist",
     "start": "npm run dev",
     "dev": "cross-env NODE_ENV=development node server.js",
-    "build": "cross-env NODE_ENV=production &&npm run clear && webpack --config ./webpack.pro.config.js -p"
+    "build": "cross-env NODE_ENV=production &&npm run clear && webpack --config ./webpack.pro.config",
+    "dll": "webpack --config webpack.dll.config"
   },
   "author": "luoran",
   "license": "ISC",
@@ -18,10 +19,10 @@
     "mobx-react": "^5.2.5",
     "moment": "^2.22.2",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "rimraf": "^2.6.2"
+    "react-dom": "^16.4.2"
   },
   "devDependencies": {
+    "add-asset-html-webpack-plugin": "^3.0.1",
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -38,6 +39,7 @@
     "koa-webpack-dev-middleware": "^2.0.2",
     "koa-webpack-hot-middleware": "^1.0.3",
     "react-hot-loader": "^4.3.6",
+    "rimraf": "^2.6.2",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0"
   }

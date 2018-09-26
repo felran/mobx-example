@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 module.exports = {
     mode:'production',
     entry:[
@@ -14,7 +15,7 @@ module.exports = {
     module:{
         rules:[{
             test:/\.js$/,
-            include:/app/,
+            include:/src/,
             use:{
                 loader:'babel-loader',
                 options:{
@@ -25,18 +26,15 @@ module.exports = {
         }]
     },
     plugins:[
-        // new webpack.DllPlugin({
-        //     context:__dirname,
-        //     name:'dll_[name].js',
-        //     path:path.resolve(__dirname,'manifest.json')
-        // }),
-        // new webpack.DllReferencePlugin({
-        //     context:__dirname,
-        //     manifest:require('./manifest.json'),
-        // }),
+        new webpack.DllReferencePlugin({
+            manifest:require(path.join(__dirname,'lib','manifest.json'))
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, './public/index.html'),
+        }),
+        new AddAssetHtmlPlugin({ 
+            filepath: path.resolve('./lib/vendors.js')
         }),
     ]
 }
